@@ -1,0 +1,81 @@
+<!--Naked Form-->
+<div class="card-block">
+
+    <!--Header
+    <div class="text-center">
+        <h3><i class="fa fa-envelope"></i> Write to us:</h3>
+        <hr class="mt-2 mb-2">
+    </div>-->
+
+    <!--Body
+    <p>We'll write rarely, but only the best content.</p>
+    <br>-->
+
+    <!--Body-->
+    <div class="md-form">
+        <i class="fa fa-user prefix" ></i><label for="form3">Nom Formation</label>
+        <input type="text"  class="form-control" [(ngModel)]="nomFormation">
+        
+    </div>
+
+    <div class="md-form">
+        <i class="fa fa-envelope prefix"></i> <label for="form2">Date de debut </label>
+        <input type="text"  class="form-control" [(ngModel)]="Ddebut">
+       
+    </div>
+
+    <div class="md-form">
+        <i class="fa fa-tag prefix"></i><label for="form34">Date de fin</label>
+        <input type="text"  class="form-control" [(ngModel)]="Dfin">
+        
+    </div>
+
+    <div class="md-form">
+        <i class="fa fa-pencil prefix"></i> <label for="form8">Prix</label>
+        <textarea type="text"  class="form-control" [(ngModel)]="Prix"></textarea>
+       
+    </div> 
+     <div class="md-form">
+        <i class="fa fa-pencil prefix"></i><label for="form8">Nombre heures</label>
+        <textarea type="text"  class="form-control" [(ngModel)]="nbreHeures"></textarea>
+        
+    </div> 
+     <div class="md-form">
+        <i class="fa fa-pencil prefix"></i><label for="form8">Specialité</label>
+        <textarea type="text"  class="form-control" [(ngModel)]="specialite"></textarea>
+        
+    </div>
+    <div class="md-form">
+        <i class="fa fa-pencil prefix"></i><label for="form8">Certificat de fin formation</label>
+        <textarea type="text"  class="form-control" [(ngModel)]="Certif"></textarea>
+        
+    </div>
+    <!--<div class="md-form">
+        <i class="fa fa-pencil prefix"></i><label for="form8">Certificat</label>
+        <textarea type="text"  class="form-control" [(ngModel)]="Cin"></textarea>
+    
+    </div>
+    <div class="md-form">
+        <i class="fa fa-pencil prefix"></i><label for="form8">permis</label>
+        <textarea type="text" class="form-control" [(ngModel)]="permis"></textarea>
+        
+    </div>
+    <div class="md-form">
+        <i class="fa fa-pencil prefix"></i> <label for="form8">Location</label>
+        <textarea type="text" class="form-control" [(ngModel)]="Location"></textarea>
+       
+    </div>-->
+    
+    <div class="text-center">
+        <button class="btn btn-default" (click)="up();">Submit</button>
+
+      <!-- <div class="call">
+            <br>
+            <p>Or would you prefer to call?
+                <br>
+                <span><i class="fa fa-phone"> </i></span> + 01 234 565 280</p>
+        </div>--> 
+    </div>
+
+</div>
+<!--Naked Form-->

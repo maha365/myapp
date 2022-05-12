@@ -1,0 +1,100 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+}
+
+.toolbar-filler {
+  flex: 1 1 auto
+}
+
+.co {
+  background-color: rgba(255, 255, 255, 0.959) !important;
+  color: white !important;
+  //box-shadow: 2px 2px 15px grey;
+}
+.icon{
+  background-color: rgba(20, 25, 88, 0.959) ;
+}
+.ico:hover {
+  //color: rgba(255, 255, 255, 0.856) !important;
+}
+
+.divb {
+  padding: 8px !important;
+  border-radius: 15px !important;
+ // box-shadow: 0 4px 8px 0 rgb(240, 235, 235), 0 6px 20px 0 rgba(214, 201, 201, 0.938) !important;
+
+}
+
+.activeLi {
+  color: rgba(255, 72, 0, 0.856) !important;
+  box-shadow: 0 0px 0px 0 rgb(240, 235, 235), 0 0px 0px 0 rgba(214, 201, 201, 0.938) !important;
+}
+
+.log {
+  background-color: white !important;
+  border-radius: 5px !important;
+}
+
+
+
+#i1{
+  border-radius:50%;
+  width: 100px;
+  height: 120px;
+}
+/********************************img******************/
+p {
+  font-family: Lato;
+}
+
+img {
+  height: 110px;
+  width: 110px;
+  border-radius: 50%;
+}
+.hoverable{
+  position: relative;
+  display: block;
+  cursor: pointer;
+  height: 70%;
+  width: 51%;
+  border: 3px solid rgb(44, 19, 85);
+  border-radius: 50%;
+  margin-left: 49px;
+
+}
+.hoverable .hover-text{
+  position: absolute;
+  display: none;
+  top: 50%;
+  left:  50%;
+  transform: translate(-50%,-50%);   
+  z-index: 2;
+}
+.hoverable .background{
+  position: absolute;
+  display: none;
+  top: 0;
+  left:  0;
+  bottom: 0;
+  right: 0;
+  background-color:rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 1;
+}
+.hoverable:hover .hover-text{
+  display: block;
+}
+.hoverable:hover .background{
+  display: block;
+}
+
+#fileInput{
+  display: none;
+}

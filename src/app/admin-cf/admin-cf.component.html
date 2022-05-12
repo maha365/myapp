@@ -1,0 +1,96 @@
+<mat-sidenav-container class="example-container"  >
+  <mat-sidenav #sidenav mode="side" class="app-sidenav" opened style="background-color:  #101634;width: 230px;"  >
+      <mat-toolbar style="background-color:#101634; ">
+          <!--<button mat-icon-button class="example-icon" (click)="sidenav.toggle()" [hidden]="!sidenav.opened" aria-label="Example icon-button with menu icon">
+  <mat-icon>close</mat-icon>
+</button>-->
+
+
+      </mat-toolbar>
+     <!-- <div style="text-align: center; margin-top: -10px;"><img id="i1" src="../assets/images/ant.png">
+        <div >
+<p style="color: #ffffff;"> Ant centre </p>
+<small style="color: darkgray;" >antcentre@gmail.com</small></div>
+      </div>-->
+       <div style="text-align: center; margin-top: -10px;">
+        <label class="hoverable" for="fileInput">
+        <img [src]="url" > 
+        <div class="hover-text">Choose file</div>
+        <div class="background"></div>
+      </label>
+      <br/>
+            <input id="fileInput" type='file' (change)="onSelectFile($event)">
+        </div>
+      <mat-nav-list   style="margin-top: 50px;" >
+          <table border="0">
+              <tr >
+                  <div  style="padding: 20px !important;">
+                      <a class="ico box" mat-list-item routerLink="./Rdv" routerLinkActive="activeLi" (click)="sidenav.toggle()">
+                          <span class="title ml-4" style="padding-left: 10px !important;" md-line style="color:#ffffff;" > Informations personnels</span>
+
+                      </a>
+                  </div>
+              </tr>
+              <tr>
+                  <div style="padding: 20px !important;">
+                      <a class="ico box" mat-list-item [routerLink]="['/dash/etud']" routerLinkActive="activeLi" (click)="sidenav.toggle()">
+                          <span class="title ml-3" style="padding-left: 10px !important;" md-line style="color:#ffffff;"> Etudiants</span>
+
+                      </a>
+                  </div>
+              </tr>
+              <tr>
+                  <div style="padding: 20px !important;">
+                      <a class="ico box" [routerLink]="['/dash/rh']" routerLinkActive="activeLi" mat-list-item (click)="sidenav.toggle()">
+                          <span class="title ml-3" style="padding-left: 10px !important;" md-line style="color:#ffffff;">Ressources Humaines</span>
+
+                      </a>
+                  </div>
+              </tr>       <tr>
+                  <div style="padding: 20px !important;">
+                      <a class="ico box" routerLink="MDemandes" routerLinkActive="activeLi" mat-list-item (click)="sidenav.toggle()">
+                          <span class="title ml-3" style="padding-left: 10px !important;" md-line style="color:#ffffff;">Formations</span>
+
+                      </a>
+                  </div>
+              </tr>
+              <tr>
+                  <div style="padding: 20px !important;">
+                      <a class="ico box" mat-list-item routerLink="Chercher" routerLinkActive="activeLi" (click)="sidenav.toggle()">
+                          <span class="title ml-3" md-line style="color:#ffffff;"> Chercher</span>
+
+                      </a>
+                  </div>
+              </tr>
+              <tr>
+                  <div style="padding: 20px !important;">
+                      <a class="ico box" mat-list-item routerLink="Paiement" routerLinkActive="activeLi" (click)="sidenav.toggle()">
+                          <div class="divb"> <i class='fas fa-archway fa-credit-card fa-2x'></i></div>
+                          <span class="title ml-3" md-line style="color:#ffffff;"> Paiement</span>
+                      </a>
+                  </div>
+              </tr>
+          </table>
+      </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-toolbar class="icon" id="appToolbar"  style="background-color:  #ffffff;" >
+      <button mat-icon-button class="md-icon-button sidenav-toggle-button " (click)="sidenav.toggle() " [hidden]="sidenav.opened " aria-label="Example icon-button with menu icon " >
+    <mat-icon >menu</mat-icon>
+  </button>
+      <!--<h1 class="component-title ">
+          <img src="../../assets/logo1.png" class="log" width="150">
+      </h1>-->
+      <span class="toolbar-filler "></span>
+      <button routerLink="../identifier/Login" mat-button>Logout</button>
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>
+  
+  <footer class="footer text-center">
+      <div class="container">
+         <!-- <span class="text-muted"> <b>Doctor </b> ©  2021.</span>-->
+
+      </div>
+  </footer>
+</mat-sidenav-container>
