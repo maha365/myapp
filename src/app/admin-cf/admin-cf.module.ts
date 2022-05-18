@@ -12,7 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CrudRHComponent } from './crud-rh/crud-rh.component';
 import { AjoutRhComponent } from './crud-rh/ajout-rh/ajout-rh.component';
 import { UpdateRhComponent } from './crud-rh/update-rh/update-rh.component';
-
+import {ChartModule} from 'primeng/chart';
+import {AccordionModule} from 'primeng/accordion';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { UpdateRhComponent } from './crud-rh/update-rh/update-rh.component';
   ],
   imports: [
  CommonModule, 
-    AdminCfRoutingModule,FormsModule, ReactiveFormsModule,HttpClientModule
+    AdminCfRoutingModule,FormsModule, ReactiveFormsModule,HttpClientModule,ChartModule,AccordionModule,
   ],
   providers:[AdmincfService]
 })

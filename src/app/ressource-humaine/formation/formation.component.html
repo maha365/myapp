@@ -61,15 +61,7 @@
         <td>{{x.nbreHeures}}</td>
         <td>{{x.specialite}}</td>
         <td>{{x.certif}}</td>
-        
-
-        <td>
-          <button type="button" class="btn btn-link btn-sm btn-rounded">
-            Edit
-          </button>
-        </td>
-        <td><button  class="btn btn-dark" [routerLink]="['/dashrh/updateFormation/',x.id]">Update</button></td>
-  
+        <td><button  class="btn btn-dark  btn-rounded" [routerLink]="['/dashrh/updateFormation/',x.id]">Update</button></td>
       </tr>
       <!--<tr>
         <td>

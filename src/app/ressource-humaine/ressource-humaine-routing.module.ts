@@ -21,15 +21,14 @@ const routes: Routes = [ {
       redirectTo: 'dashrh',
       pathMatch: 'full',
     } ,
-    /*********etudiants***********/
+      
+/*********etudiants***********/
     { path:'etud', component: CrudEtudComponent },
-
     {
-      path:'addetud',
-      component: AjoutEtudComponent,
-    }, {
-      path:'updateetudiants/:id',
-      component: UpdateEtudComponent,
+      path:'addetud',component: AjoutEtudComponent,
+    },
+    {
+      path:'updateetudiants/:id',component: UpdateEtudComponent,
     },
 /************Formation**************/
 { path:'listeFormation', component:FormationComponent },

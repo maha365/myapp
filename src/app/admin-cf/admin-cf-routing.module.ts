@@ -14,9 +14,9 @@ const routes: Routes = [
     children: [
    {
         path: '',
-        redirectTo: 'dash',
+        redirectTo: 'admindash',
         pathMatch: 'full',
-      } ,
+       } ,
       {
         path:'ajoutrh',
         component: AjoutRhComponent,

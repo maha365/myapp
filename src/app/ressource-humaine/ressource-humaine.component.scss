@@ -62,7 +62,7 @@
     display: block;
     cursor: pointer;
     height: 70%;
-    width: 51%;
+    width: 55%;
     border: 3px solid rgb(44, 19, 85);
     border-radius: 50%;
     margin-left: 49px;
@@ -98,3 +98,19 @@
   #fileInput{
     display: none;
   }
+  /* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1 !important; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888 !important; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555 !important; 
+}
+
+

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -22,8 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdmincfService } from './admin-cf/admincf.service';
 import { RessourceHumaineComponent } from './ressource-humaine/ressource-humaine.component';
 import { RessourceHumaineModule } from './ressource-humaine/ressource-humaine.module';
+import { KeycloakService } from 'keycloak-angular';
 //import { ImComponent } from './im/im.component';
-
+import { KeycloakAngularModule } from 'keycloak-angular';
+import {ChartModule} from 'primeng/chart';
+//import { PieChartDataSampleComponent } from "./admin-cf/dashboard-admin/dashboard-admin.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,16 +35,38 @@ import { RessourceHumaineModule } from './ressource-humaine/ressource-humaine.mo
     AdminCfComponent,
     RessourceHumaineComponent,
    // ImComponent,
-
-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,RouterModule,
+    
+    AppRoutingModule,RouterModule,ChartModule,
     BrowserAnimationsModule, ButtonModule, MenubarModule, TabMenuModule,
-    AccordionModule,MatToolbarModule,MatSidenavModule,MatIconModule,MatListModule,MatButtonModule,MatMenuModule,FormsModule,ReactiveFormsModule,HttpClientModule,RessourceHumaineModule
+    AccordionModule,MatToolbarModule,MatSidenavModule,MatIconModule,MatListModule,KeycloakAngularModule,MatButtonModule,MatMenuModule,FormsModule,ReactiveFormsModule,HttpClientModule,RessourceHumaineModule
   ],
-  providers: [AdmincfService],
+  providers: [{
+    provide: APP_INITIALIZER,
+    useFactory: initializeKeycloak,
+    multi: true,
+    deps: [KeycloakService]} 
+    ,AdmincfService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+function initializeKeycloak(keycloak: KeycloakService){
+  return ()=>
+  keycloak.init({
+    config: {
+      url: 'http://localhost:8180/auth',
+      realm:'PfeLogin',
+      clientId: 'admin-back',
+      
+    },
+  
+  initOptions:{
+    onLoad:'login-required',
+    flow:'standard',
+    checkLoginIframe:false,
+  
+  },
+  loadUserProfileAtStartUp: true,
+})};

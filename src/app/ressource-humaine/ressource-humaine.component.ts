@@ -9,6 +9,9 @@ export class RessourceHumaineComponent implements OnInit {
 
   constructor() { }
 
+  msj="success"
+  test:boolean=false;
+
   ngOnInit(): void {
   }
   url="./assets/images/avatar2.png"
@@ -20,6 +23,7 @@ export class RessourceHumaineComponent implements OnInit {
       reader.readAsDataURL(e.target.files[0]);
       reader.onload=(event:any)=>{
         this.url=event.target.result;
+        this.test=true;
       }
     }
   }
