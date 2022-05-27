@@ -4,6 +4,13 @@
           <!--<button mat-icon-button class="example-icon" (click)="sidenav.toggle()" [hidden]="!sidenav.opened" aria-label="Example icon-button with menu icon">
   <mat-icon>close</mat-icon>
 </button>-->
+<div style="margin-left:140px; display: flex; color: #ffffff;margin-top: 5px;">
+    <mat-icon style="margin-right:-70px;">notifications_none</mat-icon>
+    <mat-icon style="margin-left:20px;">account_circle</mat-icon>
+</div>
+<button style="margin-left: 20px; color: rgb(255, 255, 255);" mat-icon-button class="example-icon" (click)="sidenav.toggle()" [hidden]="!sidenav.opened" aria-label="Example icon-button with menu icon">
+        <mat-icon>close</mat-icon>
+      </button>
 
 
       </mat-toolbar>
@@ -25,15 +32,15 @@
           <table border="0">
               <tr >
                   <div  style="padding: 20px !important;">
-                      <a class="ico box" mat-list-item routerLink="./Rdv" routerLinkActive="activeLi" (click)="sidenav.toggle()">
-                          <span class="title ml-4" style="padding-left: 10px !important;" md-line style="color:#ffffff;" > Informations personnels</span>
+                      <a class="ico box" mat-list-item routerLink="./Rdv" [routerLink]="['/dashetud/profile']" routerLinkActive="activeLi" (click)="sidenav.toggle()">
+                          <span class="title ml-4" style="padding-left: 10px !important;" md-line style="color:#ffffff;" >Profile</span>
 
                       </a>
                   </div>
               </tr>
               <tr>
                   <div style="padding: 20px !important;">
-                      <a class="ico box" mat-list-item routerLink="MSeances" routerLinkActive="activeLi" (click)="sidenav.toggle()">
+                      <a class="ico box" mat-list-item routerLink="MSeances"  routerLinkActive="activeLi" (click)="sidenav.toggle()">
                           <span class="title ml-3" style="padding-left: 10px !important;" md-line style="color:#ffffff;"> Mes cours</span>
 
                       </a>

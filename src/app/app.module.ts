@@ -26,7 +26,6 @@ import { KeycloakService } from 'keycloak-angular';
 //import { ImComponent } from './im/im.component';
 import { KeycloakAngularModule } from 'keycloak-angular';
 import {ChartModule} from 'primeng/chart';
-//import { PieChartDataSampleComponent } from "./admin-cf/dashboard-admin/dashboard-admin.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +40,8 @@ import {ChartModule} from 'primeng/chart';
     
     AppRoutingModule,RouterModule,ChartModule,
     BrowserAnimationsModule, ButtonModule, MenubarModule, TabMenuModule,
-    AccordionModule,MatToolbarModule,MatSidenavModule,MatIconModule,MatListModule,KeycloakAngularModule,MatButtonModule,MatMenuModule,FormsModule,ReactiveFormsModule,HttpClientModule,RessourceHumaineModule
+    AccordionModule,MatToolbarModule,MatSidenavModule,MatIconModule,MatListModule,KeycloakAngularModule,
+    MatButtonModule,MatMenuModule,FormsModule,ReactiveFormsModule,HttpClientModule,RessourceHumaineModule, 
   ],
   providers: [{
     provide: APP_INITIALIZER,

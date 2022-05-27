@@ -12,11 +12,13 @@ import {AccordionModule} from 'primeng/accordion';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     EtudiantComponent,
     DashboardEtudiantComponent,
+    ProfileComponent,
   ],
   imports: [
     //CommonModule,

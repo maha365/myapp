@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RessourceHumaineComponent implements OnInit {
 
-  constructor() { }
 
   msj="success"
   test:boolean=false;
@@ -27,4 +26,5 @@ export class RessourceHumaineComponent implements OnInit {
       }
     }
   }
+  
 }
