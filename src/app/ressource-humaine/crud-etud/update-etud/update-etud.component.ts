@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Etudiant } from 'src/app/Models/Etudiant';
+import { Formation } from 'src/app/Models/Formation';
 import { RhService } from '../../rh.service';
 
 @Component({
@@ -9,20 +10,27 @@ import { RhService } from '../../rh.service';
   styleUrls: ['./update-etud.component.scss']
 })
 export class UpdateEtudComponent implements OnInit {
-
+  formations!:Formation;
+  ListFormation!: Formation[];
+ 
   Cin: any;
   Username: any;
   email: any;
   numtel: any;
   etd = new Etudiant();
+  test:boolean=false;
+msj="";
+
   /**photo:any="";**/
   id = 0;
   photo = 'photo';
   tab: any = [];
-  constructor(private sRh: RhService, private route: ActivatedRoute) {}
+  constructor(private sRh: RhService, private route: ActivatedRoute,private router: Router) {}
 
   ngOnInit(): void {
     this.getData();
+    this.sRh.getAllFormation().subscribe(res => {this.ListFormation = res , console.log(res)}) ; 
+
   }
 
   getData() {
@@ -32,6 +40,7 @@ export class UpdateEtudComponent implements OnInit {
       this.email = this.tab.email;
       this.Cin = this.tab.cin;
       this.numtel = this.tab.numtel;
+      this.formations=this.tab.formations;
     });
   }
   updateEtudiant() {
@@ -57,9 +66,17 @@ export class UpdateEtudComponent implements OnInit {
     "email": this.email,
     "numtel": this.numtel,
     "photo": this.photo,
+    "formations": this.formations
+
   }
   this.sRh.UpdateEtud(data).subscribe((res) => {
     console.log(res);
+       
+    this.test=true;
+    this.msj="Etudiant modifier avec succe ! "
+    setTimeout(() =>{
+      this.router.navigate(['/etud']);
+    }, 1000);
   });}
 
 

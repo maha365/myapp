@@ -1,0 +1,63 @@
+<div
+  class="alert alert-success alert-dismissible fade  show"
+  role="alert"
+>
+  Message envoyé avec
+  <strong>succès !</strong>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+<div class="card shadow container p-3 mb-5 bg-white rounded">
+  <div class="card-body">
+    <h2 class="card-title d-flex justify-content-center">
+      Envoyer Un Email
+    </h2>
+    <div class="container bootdey">
+      <div class="email-app">
+        <main>
+
+          <div class="row">
+            <div class="col-sm-11 ml-auto">
+              <div style="overflow-x: auto;">
+                <table>
+                  <tr>
+                    <td>
+                      To: &nbsp; &nbsp;
+                      <input  class="form-control" type="email">
+                    </td>
+                  </tr>
+                  <tr>
+                    
+                      <td>Sujet:<input  class="form-control" type="text" />
+                      </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="form-group mt-4">
+                <textarea
+                  class="form-control"
+                 
+                  id="message"
+                  name="body"
+                  rows="12"
+                  placeholder="Ecrire un message"
+                ></textarea>
+              </div>
+
+              <div class="form-group pt-2">
+                <button type="submit"  class="btn btn-success">
+                  Send
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</div>
+<p-toast position="top-left" key="tl"></p-toast>

@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -26,6 +26,9 @@ import { KeycloakService } from 'keycloak-angular';
 //import { ImComponent } from './im/im.component';
 import { KeycloakAngularModule } from 'keycloak-angular';
 import {ChartModule} from 'primeng/chart';
+import { FormateurModule } from './formateur/formateur.module';
+import { EmailComponent } from './email/email.component';
+import {DropdownModule} from 'primeng/dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,15 +36,17 @@ import {ChartModule} from 'primeng/chart';
     //SideBarComponent,
     AdminCfComponent,
     RessourceHumaineComponent,
+    EmailComponent
+
    // ImComponent,
   ],
   imports: [
     BrowserModule,
-    
+   
     AppRoutingModule,RouterModule,ChartModule,
     BrowserAnimationsModule, ButtonModule, MenubarModule, TabMenuModule,
     AccordionModule,MatToolbarModule,MatSidenavModule,MatIconModule,MatListModule,KeycloakAngularModule,
-    MatButtonModule,MatMenuModule,FormsModule,ReactiveFormsModule,HttpClientModule,RessourceHumaineModule, 
+    MatButtonModule,MatMenuModule,FormsModule,ReactiveFormsModule,HttpClientModule,RessourceHumaineModule,FormateurModule,
   ],
   providers: [{
     provide: APP_INITIALIZER,
@@ -49,17 +54,19 @@ import {ChartModule} from 'primeng/chart';
     multi: true,
     deps: [KeycloakService]} 
     ,AdmincfService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],  schemas: [ NO_ERRORS_SCHEMA
+  ]
+
 })
 export class AppModule { }
+
 function initializeKeycloak(keycloak: KeycloakService){
   return ()=>
   keycloak.init({
     config: {
-      url: 'http://localhost:8180/auth',
+      url: 'http://localhost:8080/auth',
       realm:'PfeLogin',
       clientId: 'admin-back',
-      
     },
   
   initOptions:{
@@ -69,4 +76,4 @@ function initializeKeycloak(keycloak: KeycloakService){
   
   },
   loadUserProfileAtStartUp: true,
-})};
+})}

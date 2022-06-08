@@ -1,20 +1,23 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { KeycloakService } from 'keycloak-angular';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Etudiant } from '../Models/Etudiant';
 import { Formateur } from '../Models/Formateurs';
 import { Formation } from '../Models/Formation';
+import { RH } from '../Models/RH';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RhService {
 
-  private url: String = 'http://localhost:8080';
+  private url: String = 'http://localhost:8082';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/Json' }),
   };
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient ,private keycloakService: KeycloakService) 
+  { this.roles = this.keycloakService.getUserRoles();}
 
   getAllEtudiant(): Observable<Etudiant[]> {
     return this.http.get<Etudiant[]>(this.url + '/etudiant/getallEtud');
@@ -30,7 +33,7 @@ export class RhService {
     console.log('Service:', body);
 
     return this.http.post<Etudiant>(
-      'http://localhost:8080/etudiant/addEtud',
+      'http://localhost:8082/etudiant/addEtud',
       body,
       { headers: headrs }
     );
@@ -39,14 +42,14 @@ export class RhService {
     const headrs = { 'Content-Type': 'application/Json' };
     const body = JSON.stringify(et);
     console.log('Service:', body);
-    return this.http.put<Etudiant>('http://localhost:8080/etudiant/update', body, {
+    return this.http.put<Etudiant>('http://localhost:8082/etudiant/update', body, {
       headers: headrs,
     });
   }
 
   getEtudiantByID(id: any) {
     return this.http.get<Etudiant[]>(
-      'http://localhost:8080/etudiant/getEtudById/' + id
+      'http://localhost:8082/etudiant/getEtudById/' + id
     );
   }
   /******************************Formation************/
@@ -57,7 +60,7 @@ export class RhService {
     console.log('Service:', body);
 
     return this.http.post<Formation>(
-      'http://localhost:8080/formation/addFormation',
+      'http://localhost:8082/formation/addFormation',
       body,
       { headers: headrs }
     );
@@ -66,18 +69,18 @@ export class RhService {
     const headrs = { 'Content-Type': 'application/Json' };
     const body = JSON.stringify(formation);
     console.log('Service:', body);
-    return this.http.put<Formation>('http://localhost:8080/formation/update', body, {
+    return this.http.put<Formation>('http://localhost:8082/formation/update', body, {
       headers: headrs,
     });
   }
 
   getFormationByID(id: any) {
     return this.http.get<Formation[]>(
-      'http://localhost:8080/formation/getFormationById/'+ id
+      'http://localhost:8082/formation/getFormationById/'+ id
     );
   }
-  getAllFormation(): Observable<Formation[]> {
-    return this.http.get<Formation[]>('http://localhost:8080/formation/getallFormation');
+  getAllFormation(): Observable<any> {
+    return this.http.get<any>('http://localhost:8082/formation/getallFormation');
   } 
   /*********Formateur********/
 
@@ -90,7 +93,7 @@ export class RhService {
     console.log('Service:', body);
 
     return this.http.post<Formateur>(
-      'http://localhost:8080/formateur/addFormateur',
+      'http://localhost:8082/formateur/addFormateur',
       body,
       { headers: headrs }
     );
@@ -99,18 +102,29 @@ export class RhService {
     const headrs = { 'Content-Type': 'application/Json' };
     const body = JSON.stringify(formateur);
     console.log('Service:', body);
-    return this.http.put<Formateur>('http://localhost:8080/formateur/update', body, {
+    return this.http.put<Formateur>('http://localhost:8082/formateur/update', body, {
       headers: headrs,
     });
   }
 
   getFormateurByID(id: any) {
     return this.http.get<Formateur[]>(
-      'http://localhost:8080/formateur/getFormateurById/'+ id
+      'http://localhost:8082/formateur/getFormateurById/'+ id
     );
   }
   getAllFormateur(): Observable<Formateur[]> {
-    return this.http.get<Formateur[]>('http://localhost:8080/formateur/getallFormateur');
+    return this.http.get<Formateur[]>('http://localhost:8082/formateur/getallFormateur');
   } 
-  
+  /*********roles keycloak */
+  roles:any=[];
+  name=new BehaviorSubject('abc');
+
+  getRhByemail(email:any): Observable<RH[]>{
+    return this.http.get<RH[]>(
+      'http://localhost:8082/rh/getetudemail/'+ email
+    );
+  }
+
+
+
 }

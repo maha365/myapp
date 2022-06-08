@@ -10,6 +10,7 @@ import { AjoutRhComponent } from './crud-rh/ajout-rh/ajout-rh.component';
 import { UpdateRhComponent } from './crud-rh/update-rh/update-rh.component';
 import {ChartModule} from 'primeng/chart';
 import {AccordionModule} from 'primeng/accordion';
+import { ProfileAdminComponent } from './profile-admin/profile-admin.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {AccordionModule} from 'primeng/accordion';
     CrudRHComponent,
     AjoutRhComponent,
     UpdateRhComponent,
+    ProfileAdminComponent,
   ],
   imports: [
  CommonModule, 

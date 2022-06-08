@@ -5,18 +5,15 @@
       <div class="row d-flex justify-content-center">
   
   
-          <div class="col-md-6 card shadow w-100" style="height:700px;">
-  
+          <div class="col-md-6 card shadow w-100 pt-4" style="height:700px;">
             <!-- Default form register -->
-  
             <p class="h4 mb-4">Créer un RH</p>
-            <div class="form-row mb-4">
-              <div class="col">
-                <!--Cin
-                <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="CIN°" [(ngModel)]="Cin" style="margin-bottom:20px;">
-              </div>
-              <div class="col ">-->
-                <!-- username -->
+            <div *ngIf="msErr" class="alert alert-danger" role="alert">
+                    {{msjErr}}           
+            </div>
+              <div class="form-row mb-4">
+               <div class="col">
+                
                 <input type="text" id="" class="form-control"
                   placeholder="Username" [(ngModel)]="Username">
               </div>
@@ -24,7 +21,7 @@
             <!-- E-mail -->
               <input type="text" id="" class="form-control mb-4"
               placeholder="E-mail" [(ngModel)]="emailRH">
-              <input type="text" id="" class="form-control mb-4"
+              <input type="number" id="" class="form-control mb-4"
               placeholder="NumTel" [(ngModel)]="Numtel">
               <input type="text" id="" class="form-control mb-4"
               placeholder="Sexe" [(ngModel)]="Sexe">
@@ -32,55 +29,35 @@
               placeholder="Diplome" [(ngModel)]="Diplome">
               <input type="text" id="" class="form-control mb-4"
               placeholder="Annee experience" [(ngModel)]="AnExperience">
-              <input type="text" id="" class="form-control mb-4"
+              <input type="date" id="" class="form-control form-group mb-4 pt-2 pb-2" style="height:30px !important ;"
               placeholder="Date inscript" [(ngModel)]="Dateinscription">
-               <input type="text" id="" class="form-control mb-4"
+               <input type="number" id="" class="form-control mb-4"
               placeholder="CIN°" [(ngModel)]="Cin">
               <input type="text" id="" class="form-control mb-4"
               placeholder="Permis" [(ngModel)]="permis">
               <input type="text" id="" class="form-control mb-4"
               placeholder="Location" [(ngModel)]="Location">
-            <!-- Cin -->
-            <!--<small id="" class="form-text text-muted mb-4">
-              At least 8 characters and 1 digit
-            </small>-->
-            <!-- Phone number -->
-          
-            <!-- <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-              Optional - for two step authentication
-            </small>-->
-            <!-- Newsletter -->
-            <!-- <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="">
-              <label class="custom-control-label" for="">Subscribe to our
-                newsletter</label>
-            </div>-->
-            <!-- confirmer button -->
-            <button class="btn btn-info my-5" type="submit" (click)="ajout();">Confirmer</button>
-            <!-- Social register
-            <p>or sign up with:</p>
-                <a href="#" class="mx-1" role="button"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="mx-1" role="button"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="mx-1" role="button"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="mx-1" role="button"><i class="fab fa-github"></i></a>
-            <hr>-->
+            
+            <button class="btn btn-info my-5" type="submit" (click)="ajout()">Confirmer</button>
           </div>
   
-          <!-- Terms of service
-            <p>By clicking
-              <em>Sign up</em> you agree to our
-              <a href="" target="_blank">terms of service</a>-->
-          <!-- Default form register -->
   
   
-        </div>
-        <!--Grid column-->
-  
-      <!--Grid row-->
-  
+        </div>  
   
     </section>
     <!--Section: Content-->
   
   
+</div>
+<div *ngIf="succ" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      {{msjErr}}
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>

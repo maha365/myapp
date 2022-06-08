@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Formateur } from 'src/app/Models/Formateurs';
 import { RhService } from '../../rh.service';
 
@@ -19,11 +19,12 @@ export class UpdateFormateurComponent implements OnInit {
   Dateinscription:any;
   Cin:any;
   Location!:any;
-
+test:boolean=false;
+msj="";
   id=0
   formateur=new Formateur(); 
   tab: any = []; 
-  constructor(private sRh: RhService, private route: ActivatedRoute) { }
+  constructor(private sRh: RhService, private route: ActivatedRoute, private router: Router) { }
   ngOnInit(): void {
     this.getData();
   }
@@ -60,6 +61,12 @@ export class UpdateFormateurComponent implements OnInit {
     }
     this.sRh.UpdateFromateur(data).subscribe((res) => {
       console.log(res);
+     
+      this.test=true;
+      this.msj="Formateur modifier avec succe ! "
+      setTimeout(() =>{
+        this.router.navigate(['/listeFormateur']);
+      }, 1000);
     });}
 
 

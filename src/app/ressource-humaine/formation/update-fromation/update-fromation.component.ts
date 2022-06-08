@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Formateur } from 'src/app/Models/Formateurs';
 import { Formation } from 'src/app/Models/Formation';
 import { RhService } from '../../rh.service';
 
@@ -9,6 +10,12 @@ import { RhService } from '../../rh.service';
   styleUrls: ['./update-fromation.component.scss']
 })
 export class UpdateFromationComponent implements OnInit {
+  formateur !: Formateur ; 
+  ListFormateurs !: Formateur[] ;
+
+  test:boolean=false;
+  msj="";
+  
   nomFormation:any;
   Ddebut:any;
   Dfin:any;
@@ -19,11 +26,14 @@ export class UpdateFromationComponent implements OnInit {
   formation = new Formation();
   id=0;
   tab: any = []; 
-
-  constructor(private sRh: RhService, private route: ActivatedRoute) { }
+//  formateur !: Formateur ; 
+//  ListFormateurs !: Formateur[] ;
+  constructor(private sRh: RhService, private route: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
     this.getData();
+  this.sRh.getAllFormateur().subscribe(res => this.ListFormateurs = res , ex => console.log(ex)) ; 
+
   }
   getData() {
     this.id = this.route.snapshot.params['id'];
@@ -35,7 +45,7 @@ export class UpdateFromationComponent implements OnInit {
       this.nbreHeures = this.tab.nbreHeures;
       this.specialite = this.tab.specialite;
       this.Certif = this.tab.certif;
-      
+      this.formateur= this.tab.formateur;
     });
   }
  
@@ -68,10 +78,16 @@ export class UpdateFromationComponent implements OnInit {
       "nbreHeures":this.nbreHeures,
       "specialite":this.specialite,
       "certif":this.Certif,
-     
+      "formateur": this.formateur
     }
     this.sRh.UpdateFromation(data).subscribe((res) => {
       console.log(res);
+
+      this.test=true;
+      this.msj="Formation modifier avec succe ! "
+      setTimeout(() =>{
+        this.router.navigate(['/listeFormation']);
+      }, 1000);
     });}
 
 }

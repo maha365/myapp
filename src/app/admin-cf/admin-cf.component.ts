@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KeycloakService } from 'keycloak-angular';
 
 @Component({
   selector: 'app-admin-cf',
@@ -7,11 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminCfComponent implements OnInit {
 
-  constructor() { }
+  email!:any;
+  roles!:any;
+  username!:any;
+  constructor(private KeycloakService: KeycloakService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+
+    console.log(this.KeycloakService.getUsername());
+     this.username = this.KeycloakService.getUsername();
+    this.roles = this.KeycloakService.getUserRoles()[0];
+    let userDetails = await this.KeycloakService.loadUserProfile();
+    console.log(userDetails.email);
+    this.email = userDetails.email;
   }
 
+
+
+Logout(){
+  this.KeycloakService.logout()
+}
   url="./assets/images/avatar2.png"
 
   onSelectFile(e:any){
@@ -24,4 +40,6 @@ export class AdminCfComponent implements OnInit {
       }
     }
   }
+
+
 }

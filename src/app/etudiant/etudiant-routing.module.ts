@@ -5,16 +5,17 @@ import { EtudiantComponent } from './etudiant.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [{
-  path:'',component: EtudiantComponent,
+  path: '', component: EtudiantComponent,
   children:
-  [{
-    path:'',
-    redirectTo:'dashboard',
-    pathMatch:'full'
-  },
-  {path:'dashboard',component:DashboardEtudiantComponent}, 
-{path:'profile', component:ProfileComponent}
-]}];
+    [{
+      path: '',
+      redirectTo: 'dashboard',
+      pathMatch: 'full'
+    },
+    { path: 'dashboard', component: DashboardEtudiantComponent },
+    { path: 'profile', component: ProfileComponent }
+    ]
+}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

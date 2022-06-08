@@ -11,6 +11,12 @@
             <!-- Default form register -->
   
             <p class="h4 mb-4">Créer un etudiant</p>
+            <div *ngIf="test==true" class="alert alert-info" role="alert">
+              {{msj}}            </div>
+              
+              <div *ngIf="test==false" class="alert alert-danger" role="alert">
+                {{msj}}            </div>
+                
             <div class="form-row mb-4">
               <div class="col">
                 <!--Cin
@@ -29,41 +35,23 @@
   
             <!-- Cin -->
             <input type="text" id="" class="form-control" placeholder="CIN°"
-              aria-describedby="" [(ngModel)]="Cin">
+              aria-describedby="" [(ngModel)]="Cin" (keypress)="keyPressNumbers($event)">
             <small id="" class="form-text text-muted mb-4">
               At least 8 characters and 1 digit
             </small>
   
             <!-- Phone number -->
             <input type="text" id="" class="form-control" placeholder="Numero Telephone"
-              aria-describedby="" [(ngModel)]="numtel">
-            <!-- <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-              Optional - for two step authentication
-            </small>-->
-            <!-- Newsletter -->
-            <!-- <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="">
-              <label class="custom-control-label" for="">Subscribe to our
-                newsletter</label>
-            </div>-->
-            <!-- confirmer button -->
-            <button class="btn btn-info my-5" type="submit" (click)="ajout()">Confirmer</button>
-            <!-- Social register
-            <p>or sign up with:</p>
-                <a href="#" class="mx-1" role="button"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="mx-1" role="button"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="mx-1" role="button"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="mx-1" role="button"><i class="fab fa-github"></i></a>
-            <hr>-->
+              aria-describedby="" [(ngModel)]="numtel" (keypress)="keyPressNumbers($event)">
+
+              <p-dropdown [options]="ListFormation" placeholder="Formation" [(ngModel)]="formations" style="width: 20px !important ;"  optionLabel="nomFormation"></p-dropdown>
+
+
+            <button class="btn btn-info my-5" type="submit" [disabled]="!Username || !email || !Cin || !numtel || !formations" (click)="ajout()">Confirmer</button>
+          
           </div>
   
-          <!-- Terms of service
-            <p>By clicking
-              <em>Sign up</em> you agree to our
-              <a href="" target="_blank">terms of service</a>-->
-          <!-- Default form register -->
-  
-  
+     
         </div>
         <!--Grid column-->
   

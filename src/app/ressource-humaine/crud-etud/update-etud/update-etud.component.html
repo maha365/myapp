@@ -13,6 +13,10 @@
             <!-- Default form register -->
   
             <p class="h4 mb-4">Modifier Un etudiant</p>
+            <div *ngIf="test==true" class="alert alert-success" role="alert">
+              {{msj}}
+                          </div>
+              
             <div class="form-row mb-4">
               <div class="col">
                 <!--Cin
@@ -40,16 +44,8 @@
             <input type="text" id="" class="form-control" placeholder="Numero
               Telephone"
               aria-describedby="" [(ngModel)]="numtel">
-            <!-- <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-              Optional - for two step authentication
-            </small>-->
-            <!-- Newsletter -->
-            <!-- <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="">
-              <label class="custom-control-label" for="">Subscribe to our
-                newsletter</label>
-            </div>-->
-            <!-- confirmer button -->
+              <p-dropdown [options]="ListFormation" placeholder="Formation" [(ngModel)]="formations" style="width: 20px !important ;"  optionLabel="nomFormation"></p-dropdown>
+
             <button class="btn btn-info my-5" type="submit" (click)="up()">Confirmer</button>
             <!-- Social register
             <p>or sign up with:</p>

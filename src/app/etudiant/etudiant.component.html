@@ -1,96 +1,117 @@
-<mat-sidenav-container class="example-container"  >
-  <mat-sidenav #sidenav mode="side" class="app-sidenav" opened style="background-color:  #5f395b;width: 230px;"  >
-      <mat-toolbar style="background-color:#5f395b; ">
-          <!--<button mat-icon-button class="example-icon" (click)="sidenav.toggle()" [hidden]="!sidenav.opened" aria-label="Example icon-button with menu icon">
-  <mat-icon>close</mat-icon>
-</button>-->
-<div style="margin-left:140px; display: flex; color: #ffffff;margin-top: 5px;">
-    <mat-icon style="margin-right:-70px;">notifications_none</mat-icon>
-    <mat-icon style="margin-left:20px;">account_circle</mat-icon>
-</div>
-<button style="margin-left: 20px; color: rgb(255, 255, 255);" mat-icon-button class="example-icon" (click)="sidenav.toggle()" [hidden]="!sidenav.opened" aria-label="Example icon-button with menu icon">
-        <mat-icon>close</mat-icon>
-      </button>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" class="app-sidenav" opened style="background-color:  #7c1e37;width: 230px;">
+        <mat-toolbar style="background-color:#7c1e37; ">
+            <div style="margin-left:140px; display: flex; color: #ffffff;margin-top: 5px;">
+                <mat-icon style="margin-right:-70px; margin-top: 8px;">notifications_none</mat-icon>
+                <div class="dropdown">
+                    <button class="btn" style="color:white !important;" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <mat-icon>account_circle</mat-icon>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Connecté en tant que <br> <i>{{email}}</i></a></li>
+                        <li>
+                            <hr>
+                        </li>
+
+                        <li>
+                            <a style="text-decoration: none !important; margin-left: 12px  !important; color: black !important;"
+                                [routerLink]="['/dashetud/profile']" (click)="sidenav.toggle()">
+                                <span class="title ml-4"><i class="far fa-user"></i> Profile</span>
+
+                            </a>
+
+                        </li>
 
 
-      </mat-toolbar>
-      <div style="text-align: center; margin-top: -10px;">
-        <label class="hoverable" for="fileInput">
-        <img [src]="url" > 
-        <div class="hover-text">Choose file</div>
-        <div class="background"></div>
-      </label>
-      <br/>
-      <input id="fileInput" type='file' (change)="onSelectFile($event)">
+                        <li>
+                            <hr>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none !important; margin-left: 12px  !important; color: black !important;"
+                                [routerLink]="['/dashrh/Profile']" (click)="sidenav.toggle()">
+                                <span class="title ml-4"><i class="fas fa-sign-out-alt"></i> Logout </span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button style="margin-left: 20px; color: rgb(255, 255, 255);" mat-icon-button class="example-icon"
+                (click)="sidenav.toggle()" [hidden]="!sidenav.opened" aria-label="Example icon-button with menu icon">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-toolbar>
+        <div style="text-align: center; margin-top: 10px;">
+            <label class="hoverable" for="fileInput">
+                <img [src]="url">
+                <div class="hover-text">Choose file</div>
+                <div class="background"></div>
+            </label>
+            <br />
+            <input id="fileInput" type='file' (change)="onSelectFile($event)">
+
         </div>
-     <!-- <div style="text-align: center; margin-top: -10px;"><img id="i1" src="../assets/images/ant.png">
-        <div >
-<p style="color: #ffffff;"> Ant centre </p>
-<small style="color: darkgray;" >antcentre@gmail.com</small></div>
-      </div>-->
-      <mat-nav-list   style="margin-top: 50px;" >
-          <table border="0">
-              <tr >
-                  <div  style="padding: 20px !important;">
-                      <a class="ico box" mat-list-item routerLink="./Rdv" [routerLink]="['/dashetud/profile']" routerLinkActive="activeLi" (click)="sidenav.toggle()">
-                          <span class="title ml-4" style="padding-left: 10px !important;" md-line style="color:#ffffff;" >Profile</span>
 
-                      </a>
-                  </div>
-              </tr>
-              <tr>
-                  <div style="padding: 20px !important;">
-                      <a class="ico box" mat-list-item routerLink="MSeances"  routerLinkActive="activeLi" (click)="sidenav.toggle()">
-                          <span class="title ml-3" style="padding-left: 10px !important;" md-line style="color:#ffffff;"> Mes cours</span>
+        <mat-nav-list style="margin-top: 50px;">
 
-                      </a>
-                  </div>
-              </tr>
-              <!--<tr>
-                  <div style="padding: 20px !important;">
-                      <a class="ico box" routerLink="MDemandes" routerLinkActive="activeLi" mat-list-item (click)="sidenav.toggle()">
-                          <span class="title ml-3" style="padding-left: 10px !important;" md-line style="color:#ffffff;"> Mes formations</span>
+            <table border="0">
+                <tr>
+                    <div>
+                        <i
+                            style="padding-left: 20px !important; color:white !important; font-size: 120% !important;">{{username}}</i>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <i
+                            style="padding-left: 20px !important; color:white !important; font-size: 120% !important;"><b>{{roles}}</b></i>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <hr
+                            style="margin-left: 20px !important; color:white !important; padding-left: 20px !important; ">
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <a style="text-decoration:none !important ;" class="ico box" mat-list-item
+                            routerLink="dashboard" routerLinkActive="activeLi" (click)="sidenav.toggle()">
+                            <span class="title ml-3" style="padding-left: 20px !important;" md-line
+                                style="color:#ffffff;"> <i class="fas fa-home"></i> Dashboard</span>
 
-                      </a>
-                  </div>
-              </tr>
-              <tr>
-                  <div style="padding: 20px !important;">
-                      <a class="ico box" mat-list-item routerLink="Chercher" routerLinkActive="activeLi" (click)="sidenav.toggle()">
-                          <span class="title ml-3" md-line style="color:#ffffff;"> Chercher</span>
+                        </a>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <a style="text-decoration:none !important ;" class="ico box" mat-list-item routerLink="MSeances"
+                            routerLinkActive="activeLi" (click)="sidenav.toggle()">
+                            <span class="title ml-3" style="padding-left: 20px !important;" md-line
+                                style="color:#ffffff;"> <i class="fas fa-file-video"></i> Mes Seances</span>
 
-                      </a>
-                  </div>
-              </tr>
-              <tr>
-                  <div style="padding: 20px !important;">
-                      <a class="ico box" mat-list-item routerLink="Paiement" routerLinkActive="activeLi" (click)="sidenav.toggle()">
-                          <div class="divb"> <i class='fas fa-archway fa-credit-card fa-2x'></i></div>
-                          <span class="title ml-3" md-line style="color:#ffffff;"> Paiement</span>
-                      </a>
-                  </div>
-              </tr>-->
-          </table>
-      </mat-nav-list>
-  </mat-sidenav>
+                        </a>
+                    </div>
+                </tr>
 
-  <mat-toolbar class="icon" id="appToolbar"  style="background-color:  #ffffff;" >
-      <button mat-icon-button class="md-icon-button sidenav-toggle-button " (click)="sidenav.toggle() " [hidden]="sidenav.opened " aria-label="Example icon-button with menu icon " >
-    <mat-icon >menu</mat-icon>
-  </button>
-      <!--<h1 class="component-title ">
-          <img src="../../assets/logo1.png" class="log" width="150">
-      </h1>-->
-      <span class="toolbar-filler "></span>
-      <button routerLink="../identifier/Login" mat-button>Logout</button>
+            </table>
+        </mat-nav-list>
+    </mat-sidenav>
 
-  </mat-toolbar>
+    <mat-toolbar class="icon" id="appToolbar" style="background-color:  #ffffff;">
+        <button mat-icon-button class="md-icon-button sidenav-toggle-button " (click)="sidenav.toggle() "
+            [hidden]="sidenav.opened " aria-label="Example icon-button with menu icon ">
+            <mat-icon>menu</mat-icon>
+        </button>
 
-  <router-outlet></router-outlet>
-  <footer class="footer text-center">
-      <div class="container">
-         <!-- <span class="text-muted"> <b>Doctor </b> ©  2021.</span>-->
+        <span class="toolbar-filler "></span>
+        <button (click)="Logout()" mat-button>Logout</button>
 
-      </div>
-  </footer>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+    <footer class="footer text-center">
+        <div class="container">
+
+        </div>
+    </footer>
 </mat-sidenav-container>

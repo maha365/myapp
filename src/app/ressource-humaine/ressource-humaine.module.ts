@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
-import {MenubarModule} from 'primeng/menubar';
-import {TabMenuModule} from 'primeng/tabmenu';
-import {AccordionModule} from 'primeng/accordion';
+import { MenubarModule } from 'primeng/menubar';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { AccordionModule } from 'primeng/accordion';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -23,6 +23,9 @@ import { UpdateFromationComponent } from './formation/update-fromation/update-fr
 import { CrudFormateurComponent } from './crud-formateur/crud-formateur.component';
 import { AjoutFormateurComponent } from './crud-formateur/ajout-formateur/ajout-formateur.component';
 import { UpdateFormateurComponent } from './crud-formateur/update-formateur/update-formateur.component';
+import { ProfileRhComponent } from './profile-rh/profile-rh.component';
+import { EmailrhComponent } from './emailrh/emailrh.component';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 @NgModule({
@@ -36,13 +39,20 @@ import { UpdateFormateurComponent } from './crud-formateur/update-formateur/upda
     UpdateFromationComponent,
     CrudFormateurComponent,
     AjoutFormateurComponent,
-    UpdateFormateurComponent
+    UpdateFormateurComponent,
+    ProfileRhComponent,
+    EmailrhComponent,
   ],
   imports: [
     CommonModule,
-    RessourceHumaineRoutingModule,MenubarModule, TabMenuModule,AccordionModule,MatToolbarModule,MatSidenavModule,MatIconModule,MatListModule,MatButtonModule,MatMenuModule,FormsModule, ReactiveFormsModule,HttpClientModule
+    RessourceHumaineRoutingModule, MenubarModule, TabMenuModule,
+     AccordionModule, MatToolbarModule, MatSidenavModule, MatIconModule,
+      MatListModule, MatButtonModule, MatMenuModule, FormsModule,
+       ReactiveFormsModule, HttpClientModule, DropdownModule
   ],
-  providers:[RhService]
+  providers: [RhService],  schemas: [ NO_ERRORS_SCHEMA
+  ]
+
 
 })
 export class RessourceHumaineModule { }

@@ -1,95 +1,146 @@
-<mat-sidenav-container class="example-container"  >
-    <mat-sidenav #sidenav mode="side" class="app-sidenav" opened style="background-color:  #5e60c5;width: 230px;"  >
-        <mat-toolbar style="background-color:#5e60c5; ">
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" class="app-sidenav" opened style="background-color:  #570639;width: 230px;">
+        <mat-toolbar style="background-color:#570639; ">
             <div style="margin-left:140px; display: flex; color: #ffffff;margin-top: 5px;">
-                <mat-icon style="margin-right:-70px;">notifications_none</mat-icon>
-                <mat-icon style="margin-left:20px;">account_circle</mat-icon>
+                <mat-icon style="margin-right:-70px; margin-top: 8px;">notifications_none</mat-icon>
+                <div class="dropdown">
+                    <button class="btn" style="color:white !important;" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <mat-icon>account_circle</mat-icon>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Connecté en tant que <br> <i>{{email}}</i></a></li>
+                        <li>
+                            <hr>
+                        </li>
+
+                        <li>
+                            <a style="text-decoration: none !important; margin-left: 12px  !important; color: black !important;"
+                                [routerLink]="['/dashrh/Profile']" (click)="sidenav.toggle()">
+                                <span class="title ml-4"><i class="far fa-user"></i> Profile</span>
+
+                            </a>
+
+                        </li>
+                        <li>
+
+                            <a style="text-decoration: none !important; margin-left: 12px  !important; color: black !important;"
+                                [routerLink]="['/dashrh/Email']" (click)="sidenav.toggle()">
+                                <span class="title ml-4"><i class="fas fa-inbox"></i> Email</span>
+
+                            </a>
+
+
+                        </li>
+
+                        <li>
+                            <hr>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none !important; margin-left: 12px  !important; color: black !important;"
+                                 (click)="sidenav.toggle()"  (click)="Logout()">
+                                <span class="title ml-4"><i class="fas fa-sign-out-alt"></i> Logout </span></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-<button style="margin-left: 20px; color: rgb(255, 255, 255);" mat-icon-button class="example-icon" (click)="sidenav.toggle()" [hidden]="!sidenav.opened" aria-label="Example icon-button with menu icon">
-                    <mat-icon>close</mat-icon>
-                  </button>
- </mat-toolbar>
-       <div style="text-align: center; margin-top: 10px;">
-        <label class="hoverable" for="fileInput">
-        <img [src]="url" > 
-        <div class="hover-text">Choose file</div>
-        <div class="background"></div>
-      </label>
-      <br/>
-      <input id="fileInput" type='file' (change)="onSelectFile($event)">
-      
+            <button style="margin-left: 20px; color: rgb(255, 255, 255);" mat-icon-button class="example-icon"
+                (click)="sidenav.toggle()" [hidden]="!sidenav.opened" aria-label="Example icon-button with menu icon">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-toolbar>
+        <div style="text-align: center; margin-top: 10px;">
+            <label class="hoverable" for="fileInput">
+                <img [src]="url">
+                <div class="hover-text">Choose file</div>
+                <div class="background"></div>
+            </label>
+            <br />
+            <input id="fileInput" type='file' (change)="onSelectFile($event)">
+
         </div>
-        
-        <mat-nav-list  style="margin-top: 50px;" >
-            
+
+        <mat-nav-list style="margin-top: 50px;">
+
             <table border="0">
-                <tr >
-                    <div  style="padding: 20px !important;">
-                        <a class="ico box" mat-list-item [routerLink]="['/dashrh/listeFormateur']"  routerLinkActive="activeLi" (click)="sidenav.toggle()">
-                            <span class="title ml-4" style="padding-left: 10px !important;" md-line style="color:#ffffff;" > Profile</span>
-  
-                        </a>
-                    </div>
-                </tr>
-
-                <!--<tr>
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                        Formateur
-                      </button>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                      <div class="accordion-body">aaaaaaaaaaaaaaaaaaaaa
-                      </div>
-                    </div>
-
-
-                </tr>-->
                 <tr>
-                    <div style="padding: 10px !important;" class="dropdown">
-                        <a class="ico box"  routerLinkActive="activeLi" mat-list-item
-                            (click)="sidenav.toggle()" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="title ml-3" style="padding-left: -10px !important;" md-line
-                                style="color:#ffffff;"><i class='fas fa-users-cog'></i>Formateurs</span>
-
-                        </a>
-                        <div class="dropdown-content" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#" [routerLink]="['/dashrh/listeFormateur']" >Liste des Formateurs</a>
-                            <a class="dropdown-item" href="#" [routerLink]="['/dashrh/addFormateur']">Ajout Formateurs</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                          </div>
-                    </div>
-                </tr>
-
-                <tr>
-                    <div style="padding: 10px !important;" class="dropdown">
-                        <a class="ico box"  routerLinkActive="activeLi" mat-list-item
-                            (click)="sidenav.toggle()" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="title ml-3" style="padding-left: -10px !important;" md-line
-                                style="color:#ffffff;"><i class='fas fa-users-cog'></i>Etudiants</span>
-
-                        </a>
-                        <div class="dropdown-content" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#" [routerLink]="['/dashrh/etud']" >Liste des Etudiants</a>
-                         <a class="dropdown-item" [routerLink]="['/dashrh/addetud']">Ajouter Etudiants</a>
-                              <!-- <a class="dropdown-item" href="#">Something else here</a>-->
-                          </div>
+                    <div>
+                        <i
+                            style="padding-left: 20px !important; color:white !important; font-size: 120% !important;">{{username}}</i>
                     </div>
                 </tr>
                 <tr>
-                    <div style="padding: 10px !important;" class="dropdown">
-                        <a class="ico box"  routerLinkActive="activeLi" mat-list-item
-                            (click)="sidenav.toggle()" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="title ml-3" style="padding-left: -10px !important;" md-line
-                                style="color:#ffffff;"><i class='fas fa-users-cog'></i>Formations</span>
-
-                        </a>
-                        <div class="dropdown-content" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#"[routerLink]="['/dashrh/listeFormation']" >Liste des Foramtions</a>
-                           <a class="dropdown-item" href="#" [routerLink]="['/dashrh/addFormation']">Ajouter Formations</a>
-                           <!--  <a class="dropdown-item" href="#">Something else here</a>-->
-                          </div>
+                    <div>
+                        <i
+                            style="padding-left: 20px !important; color:white !important; font-size: 120% !important;"><b>{{roles}}</b></i>
                     </div>
                 </tr>
-               <!-- <tr>
+                <tr>
+                    <div>
+                        <hr
+                            style="margin-left: 20px !important; color:white !important; padding-left: 20px !important; ">
+                    </div>
+                </tr>
+             
+                <tr>
+                    <div>
+                        <button mat-list-item type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                            aria-expanded="false" aria-controls="collapseExample">
+                            <span class="title ml-3" style="padding-left: -10px !important;" md-line
+                                style="color:#ffffff;"><i class='fas fa-users-cog'></i> Formateurs</span> </button>
+                        <div class="collapse" id="collapseExample">
+                            <div class="card card-body">
+                                <button type="button" [routerLink]="['/dashrh/listeFormateur']"
+                                    routerLinkActive="activeLi" class="btn btn-outline-danger mb-1">Liste des
+                                    Formateurs</button>
+                                <button type="button" [routerLink]="['/dashrh/addFormateur']"
+                                    routerLinkActive="activeLi" class="btn btn-outline-danger">Ajout
+                                    Formateurs</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </tr>
+
+                <tr>
+                    <div>
+                        <button mat-list-item type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2"
+                            aria-expanded="false" aria-controls="collapseExample2">
+                            <span class="title ml-3" style="padding-left: -10px !important;" md-line
+                                style="color:#ffffff;"><i class='fas fa-users-cog'></i> Formations</span> </button>
+                        <div class="collapse" id="collapseExample2">
+                            <div class="card card-body">
+                                <button type="button" [routerLink]="['/dashrh/listeFormation']"
+                                    routerLinkActive="activeLi" class="btn btn-outline-danger mb-1">Liste des
+                                    Formations</button>
+                                <button type="button" [routerLink]="['/dashrh/addFormation']"
+                                    routerLinkActive="activeLi" class="btn btn-outline-danger">Ajout
+                                    Formations</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </tr>
+                <tr>
+                    <div>
+                        <button mat-list-item type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3"
+                            aria-expanded="false" aria-controls="collapseExample3">
+                            <span class="title ml-3" style="padding-left: -10px !important;" md-line
+                                style="color:#ffffff;"><i class='fas fa-user-graduate'></i> Etudiants</span> </button>
+                        <div class="collapse" id="collapseExample3">
+                            <div class="card card-body">
+                                <button type="button" [routerLink]="['/dashrh/etud']" routerLinkActive="activeLi"
+                                    class="btn btn-outline-danger mb-1">Liste des
+                                    Etudiants</button>
+                                <button type="button" [routerLink]="['/dashrh/addetud']" routerLinkActive="activeLi"
+                                    class="btn btn-outline-danger">Ajout
+                                    Etudiants</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </tr>
+                <!-- <tr>
                     <div style="padding: 20px !important;">
                         <a class="ico box" mat-list-item routerLink="Chercher" routerLinkActive="activeLi" (click)="sidenav.toggle()">
                             <span class="title ml-3" md-line style="color:#ffffff;"> Chercher</span>
@@ -108,22 +159,21 @@
             </table>
         </mat-nav-list>
     </mat-sidenav>
-  
-    <mat-toolbar class="icon" id="appToolbar"  style="background-color:  #ffffff;" >
-        <button mat-icon-button class="md-icon-button sidenav-toggle-button " (click)="sidenav.toggle() " [hidden]="sidenav.opened " aria-label="Example icon-button with menu icon " >
-      <mat-icon >menu</mat-icon>
-    </button>
-      
+
+    <mat-toolbar class="icon" id="appToolbar" style="background-color:  #ffffff;">
+        <button mat-icon-button class="md-icon-button sidenav-toggle-button " (click)="sidenav.toggle() "
+            [hidden]="sidenav.opened " aria-label="Example icon-button with menu icon ">
+            <mat-icon>menu</mat-icon>
+        </button>
+
         <span class="toolbar-filler "></span>
-        <button routerLink="../identifier/Login" mat-button>Logout</button>
-  
+
     </mat-toolbar>
-  
+
     <router-outlet></router-outlet>
     <footer class="footer text-center">
         <div class="container">
-  
+
         </div>
     </footer>
 </mat-sidenav-container>
-  

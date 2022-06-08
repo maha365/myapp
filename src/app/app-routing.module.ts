@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminCfModule } from './admin-cf/admin-cf.module';
+import { EmailComponent } from './email/email.component';
 import { EtudiantModule } from './etudiant/etudiant.module';
+import { FormateurModule } from './formateur/formateur.module';
 //import { ImComponent } from './im/im.component';
 
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path:'dashetud',loadChildren:()=>import('./etudiant/etudiant.module').then(m=>EtudiantModule)},
   {path:'',redirectTo:'dashetud',pathMatch:'full'},
   {path:'dashrh',loadChildren:()=>import('./ressource-humaine/ressource-humaine.module').then(m=>RessourceHumaineModule)},
-  {path:'',redirectTo:'dashrh',pathMatch:'full'}
+  {path:'',redirectTo:'dashformateur',pathMatch:'full'}, {path:'dashformateur',loadChildren:()=>import('./formateur/formateur.module').then(m=>FormateurModule)},
+  {path:'',redirectTo:'dashformateur',pathMatch:'full'},
+  {path:'Email',component:EmailComponent},
 
 ];
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { KeycloakService } from 'keycloak-angular';
+import { RhService } from './rh.service';
 
 @Component({
   selector: 'app-ressource-humaine',
@@ -7,24 +9,58 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RessourceHumaineComponent implements OnInit {
 
+  constructor(private KeycloakService: KeycloakService, private rh: RhService) { }
+  msj = "success"
+  test: boolean = false;
+  username = "";
+  email!: any;
+  roles!: any;
+  async ngOnInit(): Promise<void> {
 
-  msj="success"
-  test:boolean=false;
+    console.log(this.KeycloakService.getUsername());
+    //   this.username=this.KeycloakService.getUsername();
+    this.roles = this.KeycloakService.getUserRoles()[3]
+    let userDetails = await this.KeycloakService.loadUserProfile();
+    console.log(userDetails.email);
+    this.email = userDetails.email;
 
-  ngOnInit(): void {
+    this.getStudbyem(this.email);
   }
-  url="./assets/images/avatar2.png"
 
-  onSelectFile(e:any){
-    if(e.target.files)
-    {
-      var reader=new FileReader();
+
+  Logout() {
+    this.KeycloakService.logout();
+
+  }
+  url = "./assets/images/avatar2.png"
+
+  tabs: any = [];
+  getStudbyem(email: any) {
+    this.rh.getRhByemail(email).subscribe(res => {
+
+      this.tabs = res,
+        console.log(res)
+
+      this.username = this.tabs.username
+    })
+  }
+
+
+
+
+
+
+  onSelectFile(e: any) {
+    if (e.target.files) {
+      var reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
-      reader.onload=(event:any)=>{
-        this.url=event.target.result;
-        this.test=true;
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+        this.test = true;
       }
     }
   }
-  
+
+
+
 }

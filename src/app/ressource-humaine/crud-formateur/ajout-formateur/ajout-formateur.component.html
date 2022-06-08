@@ -1,85 +1,58 @@
 <div class="container my-5 py-5 z-depth-1">
-    <!--Section: Content-->
-    <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
-      <!--Grid row-->
-      <div class="row d-flex justify-content-center">
-  
-  
-          <div class="col-md-6 card shadow w-100" style="height:700px;">
-  
-            <!-- Default form register -->
-  
-            <p class="h4 mb-4">Créer un Foramteur</p>
-            <div class="form-row mb-4">
-              <div class="col">
-                <!--Cin
+  <!--Section: Content-->
+  <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+    <!--Grid row-->
+    <div class="row d-flex justify-content-center">
+
+
+      <div class="col-md-6 card shadow w-100" style="height:700px;">
+
+        <!-- Default form register -->
+
+        <p class="h4 mb-4 pt-2">Créer un Foramteur</p>
+        <div *ngIf="test==false" class="alert alert-{{color}}" role="alert">
+          {{msj}} </div>
+        <div *ngIf="test==true" class="alert alert-{{color}}" role="alert">
+          {{msj}} </div>
+
+        <div class="form-row mb-4">
+          <div class="col">
+            <!--Cin
                 <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="CIN°" [(ngModel)]="Cin" style="margin-bottom:20px;">
               </div>
               <div class="col ">-->
-                <!-- username -->
-                <input type="text" id="" class="form-control"
-                  placeholder="Username" [(ngModel)]="Username">
-              </div>
-            </div>
-            <!-- E-mail -->
-              <input type="text" id="" class="form-control mb-4"
-              placeholder="E-mail" [(ngModel)]="email">
-              <input type="text" id="" class="form-control mb-4"
-              placeholder="NumTel" [(ngModel)]="Numtel">
-              <input type="text" id="" class="form-control mb-4"
-              placeholder="Sexe" [(ngModel)]="Sexe">
-              <input type="text" id="" class="form-control mb-4"
-              placeholder="Diplome" [(ngModel)]="Diplome">
-              <input type="text" id="" class="form-control mb-4"
-              placeholder="Annee experience" [(ngModel)]="AnExperience">
-              <input type="text" id="" class="form-control mb-4"
-              placeholder="Date inscript" [(ngModel)]="Dateinscription">
-               <input type="text" id="" class="form-control mb-4"
-              placeholder="CIN°" [(ngModel)]="Cin">
-             
-              <input type="text" id="" class="form-control mb-4"
-              placeholder="Location" [(ngModel)]="Location">
-            <!-- Cin -->
-            <!--<small id="" class="form-text text-muted mb-4">
-              At least 8 characters and 1 digit
-            </small>-->
-            <!-- Phone number -->
-          
-            <!-- <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-              Optional - for two step authentication
-            </small>-->
-            <!-- Newsletter -->
-            <!-- <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="">
-              <label class="custom-control-label" for="">Subscribe to our
-                newsletter</label>
-            </div>-->
-            <!-- confirmer button -->
-            <button class="btn btn-info my-5" type="submit" (click)="ajout();">Confirmer</button>
-            <!-- Social register
-            <p>or sign up with:</p>
-                <a href="#" class="mx-1" role="button"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="mx-1" role="button"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="mx-1" role="button"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="mx-1" role="button"><i class="fab fa-github"></i></a>
-            <hr>-->
+            <!-- username -->
+            <input type="text" id="" class="form-control" placeholder="Username" [(ngModel)]="Username">
           </div>
-  
-          <!-- Terms of service
-            <p>By clicking
-              <em>Sign up</em> you agree to our
-              <a href="" target="_blank">terms of service</a>-->
-          <!-- Default form register -->
-  
-  
         </div>
-        <!--Grid column-->
-  
-      <!--Grid row-->
-  
-  
-    </section>
-    <!--Section: Content-->
-  
-  
+        <!-- E-mail -->
+
+        <input type="text" id="" class="form-control mb-4" placeholder="E-mail" [(ngModel)]="email">
+        <input type="text" id="" class="form-control mb-4" placeholder="NumTel" [(ngModel)]="Numtel"
+          (keypress)="keyPressNumbers($event)">
+        <input type="text" id="" class="form-control mb-4" placeholder="Sexe" [(ngModel)]="Sexe">
+        <input type="text" id="" class="form-control mb-4" placeholder="Diplome" [(ngModel)]="Diplome">
+        <input type="text" id="" class="form-control mb-4" placeholder="Annee experience" [(ngModel)]="AnExperience"
+          (keypress)="keyPressNumbers($event)">
+        <input type="date" style="padding-top: 20px !important; padding-bottom: 20px !important;" id=""
+          class="form-control mb-4" placeholder="Date inscript" [(ngModel)]="Dateinscription">
+        <input type="text" id="" class="form-control mb-4" placeholder="CIN°" [(ngModel)]="Cin"
+          (keypress)="keyPressNumbers($event)">
+
+
+
+        <input type="text" id="" class="form-control mb-1" placeholder="Location" [(ngModel)]="Location">
+        <button class="btn btn-success my-5" type="submit"
+          [disabled]="!Username || !email || !Numtel || !Sexe || !Diplome || !AnExperience || !Dateinscription || !Cin || !Location"
+          (click)="ajout()">Confirmer</button>
+        <!--  -->
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
 </div>
