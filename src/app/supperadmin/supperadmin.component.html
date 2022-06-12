@@ -1,6 +1,7 @@
 <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side" class="app-sidenav" opened style="background-color:  #101634;width: 230px;">
-        <mat-toolbar style="background-color:#101634; ">
+    <mat-sidenav #sidenav mode="side" class="app-sidenav" opened
+        style="background-color:  rgb(10, 57, 164);width: 230px;">
+        <mat-toolbar style="background-color:rgb(10, 57, 164)">
             <div style="margin-left:140px; display: flex; color: #ffffff;margin-top: 5px;">
                 <mat-icon style="margin-right:-70px; margin-top: 8px;">notifications_none</mat-icon>
                 <div class="dropdown">
@@ -87,15 +88,16 @@
                         <button mat-list-item type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
                             aria-expanded="false" aria-controls="collapseExample">
                             <span class="title ml-3" style="padding-left: -10px !important;" md-line
-                                style="color:#ffffff;"><i class='fas fa-users-cog'></i> Ressources Humaines</span>
+                                style="color:#ffffff;"><i class='fas fa-users-cog'></i> Admin centre des
+                                formations</span>
                         </button>
                         <div class="collapse" id="collapseExample">
                             <div class="card card-body">
-                                <button type="button" [routerLink]="['/dash/rh']" routerLinkActive="activeLi"
-                                    class="btn btn-outline-danger mb-1">Liste de Ressource Humaine</button>
-                                <button type="button" [routerLink]="['/dash/ajoutrh']" routerLinkActive="activeLi"
+                                <button type="button" [routerLink]="['/dashsupAdm/ListeCentre']" routerLinkActive="activeLi"
+                                    class="btn btn-outline-danger mb-1">Liste des centres des formations</button>
+                                <button type="button" [routerLink]="['/dashsupAdm/AjoutCentre']" routerLinkActive="activeLi"
                                     class="btn btn-outline-danger">Ajout
-                                    RH</button>
+                                    un centre des formations</button>
 
                             </div>
                         </div>

@@ -17,12 +17,13 @@ export class AdminCfComponent implements OnInit {
 
     console.log(this.KeycloakService.getUsername());
      this.username = this.KeycloakService.getUsername();
-    this.roles = this.KeycloakService.getUserRoles()[0];
+    this.roles = this.KeycloakService.getUserRoles()[24];
     let userDetails = await this.KeycloakService.loadUserProfile();
     console.log(userDetails.email);
     this.email = userDetails.email;
-  }
 
+
+  }
 
 
 Logout(){

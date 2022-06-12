@@ -5,6 +5,7 @@ import { AdmincfService } from './admin-cf/admincf.service';
 import { EtudiantService } from './etudiant/etudiant.service';
 import { FormateurServiceService } from './formateur/formateur-service.service';
 import { RhService } from './ressource-humaine/rh.service';
+import { SupadminService } from './supperadmin/supadmin.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ export class AppComponent {
 
     constructor(private rhs:RhService,private etuds:EtudiantService,private AdminSer:AdmincfService,private formateurSer:FormateurServiceService,
       private keycloakService: KeycloakService,
-      private router:Router){
+      private router:Router, private svsupadm:SupadminService){
        this.user = this.keycloakService.getUsername()
        this.rhs.name.next(this.user)
         if(this.rhs.roles.includes('ressourceHum')) {
@@ -31,6 +32,8 @@ export class AppComponent {
           this.router.navigate(['dashetud'])
         } else if(this.formateurSer.roles.includes('formateur')) {
           this.router.navigate(['dashformateur'])
+        } else if(this.svsupadm.roles.includes('superadminapplication')) {
+          this.router.navigate(['dashsupAdm'])
         } 
     }
    

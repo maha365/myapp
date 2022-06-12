@@ -11,6 +11,7 @@ import { UpdateRhComponent } from './crud-rh/update-rh/update-rh.component';
 import {ChartModule} from 'primeng/chart';
 import {AccordionModule} from 'primeng/accordion';
 import { ProfileAdminComponent } from './profile-admin/profile-admin.component';
+import { EmailComponent } from './email/email.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ProfileAdminComponent } from './profile-admin/profile-admin.component';
     AjoutRhComponent,
     UpdateRhComponent,
     ProfileAdminComponent,
+    EmailComponent,
   ],
   imports: [
  CommonModule, 

@@ -1,0 +1,36 @@
+<p class="h4 mb-4 font-extrabold" style="font-weight: 800!important; margin-top: 200px; margin-left: 20px;">Liste des
+    Formations</p>
+<div style="overflow-x:auto !important;">
+    <table class="table  bg-white" style="overflow-x:auto;">
+        <thead class="bg-light">
+            <tr>
+                <th>Nom Fondateur</th>
+                <th>Nom Centre des formations</th>
+                <th>Date de création</th>
+                <th>Email centre des formations </th>
+                <th>N° téléphone</th>
+                <th>Registre Commerce</th>
+                <th>Secialité</th>
+                <th>Photo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of tabs">
+                <td>{{x.fondateur}}</td>
+                <td>{{x.nomC}}</td>
+                <td>{{x.anCreation}}</td>
+                <td>{{x.emailProCentre}}</td>
+                <td>{{x.numtel}}</td>
+                <td>{{x.registreCommerce}}</td>
+                <td>{{x.specialite}}</td>
+                <td><img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px"
+                    class="rounded-circle" /></td>
+<button class="btn btn-info mt-2"[routerLink]="['/dashsupAdm/UpdateCentre/',x.id]">Update</button>
+            </tr>
+        </tbody>
+
+
+    </table>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"></script>

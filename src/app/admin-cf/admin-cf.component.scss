@@ -31,51 +31,15 @@
 }
 
 .activeLi {
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 0px 0px 0 rgb(216, 203, 203), 0 0px 0px 0 rgba(214, 201, 201, 0.938) !important;
-  border-radius: 3%;
+  color: rgba(255, 242, 237, 0.856) !important; background-color: red;
+  box-shadow: 0 0px 0px 0 rgb(240, 235, 235), 0 0px 0px 0 rgba(214, 201, 201, 0.938) !important;
 }
 
-.activeLi .title{
-  color: rgba(26, 9, 26, 0.856) !important;
-}
-
-.activeLi .title:hover{
-  color:white !important;
-}
-.title{
-  color:#ffffff;
-}
 .log {
   background-color: white !important;
   border-radius: 5px !important;
 }
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .title {background-color: #ffffff00;}
 
 
 #i1{
@@ -83,7 +47,7 @@
   width: 100px;
   height: 120px;
 }
-/********************************img******************/
+/******************************** profile image*******/
 p {
   font-family: Lato;
 }
@@ -98,7 +62,7 @@ img {
   display: block;
   cursor: pointer;
   height: 70%;
-  width: 51%;
+  width: 55%;
   border: 3px solid rgb(44, 19, 85);
   border-radius: 50%;
   margin-left: 49px;
@@ -134,22 +98,19 @@ img {
 #fileInput{
   display: none;
 }
-::-webkit-scrollbar {
-  width: 10px !important;
-}
-
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1 !important; 
+background: #f1f1f1 !important; 
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888 !important; 
+background: #888 !important; 
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555 !important; 
+background: #555 !important; 
 }
+
 

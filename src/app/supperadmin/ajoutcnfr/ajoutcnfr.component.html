@@ -1,0 +1,41 @@
+<div class="container my-5 py-5 z-depth-1">
+    <!--Section: Content-->
+    <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center">
+
+
+            <div class="col-md-6 card shadow w-100" style="height:650px;">
+
+                <!-- Default form register -->
+
+                <p class="h4 mb-4">Créer un Centre des formations</p>
+                <div *ngIf="test==true" class="alert alert-info" role="alert">
+                    {{msj}}            </div>
+                    
+                    <div *ngIf="test==false" class="alert alert-danger" role="alert">
+                      {{msj}}            </div>
+                      
+                <input type="text" id="" class="form-control mt-3" placeholder="Fondateur de centre des formations"
+                [(ngModel)]="fondateur">
+
+                <input type="text" id="" class="form-control mt-3" placeholder="Nom centre des formations"
+                    [(ngModel)]="nomC">
+                <input type="email" id="" class="form-control mt-3" placeholder="Email centre des formations"
+                    [(ngModel)]="emailProCentre">
+                <small id="" class="form-text text-muted color-danger mt-3">
+                    Date de creation le centre des formations
+                </small>
+
+                <input type="date" id="" class="form-control mt-1" placeholder="" [(ngModel)]="anCreation">
+                <input type="text" id="" class="form-control mt-3" placeholder="Adresse centre des formations"[(ngModel)]="localC">
+                <input type="text" id="" class="form-control mt-3" (keypress)="keyPressNumbers($event)" placeholder="N° telephone centre des formations"[(ngModel)]="numtel">
+                <input type="text" id="" class="form-control mt-3" placeholder="Registre commerce de centre des formations"[(ngModel)]="registreCommerce">
+                <input type="text" id="" class="form-control mt-3" placeholder="Specialite commerce de centre des formations"[(ngModel)]="specialite">
+
+                <!-- <input type="text" id="" class="form-control mt-3" placeholder="photo commerce de centre des formations"[(ngModel)]="photo"> -->
+<button class="btn btn-success mt-3"  [disabled]="!fondateur || !nomC || !emailProCentre ||! anCreation ||! localC||!numtel||! registreCommerce ||!specialite" (click)="ajout()">Submit</button>
+            </div>
+        </div>
+    </section>
+</div>
