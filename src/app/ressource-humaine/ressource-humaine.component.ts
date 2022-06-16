@@ -39,8 +39,8 @@ export class RessourceHumaineComponent implements OnInit {
     this.rh.getRhByemail(email).subscribe(res => {
 
       this.tabs = res,
-        console.log(res)
-
+        console.log("aaa",res),
+console.log("zzz",this.tabs.username)
       this.username = this.tabs.username
     })
   }

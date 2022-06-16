@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CentreFormation } from 'src/app/Models/CentreFormation';
+import { SuperAdmin } from 'src/app/Models/SuperAdmin';
 import { SupadminService } from '../supadmin.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class AjoutcnfrComponent implements OnInit {
 
   centreFormation!: CentreFormation;
   ListFormation!: CentreFormation[]
-
+superAdimn = new SuperAdmin();
   nomC!: String;
   anCreation!: String;
   emailProCentre!: String;
@@ -35,7 +36,9 @@ export class AjoutcnfrComponent implements OnInit {
       "fondateur": this.fondateur,
       "numtel": this.numtel,
       "registreCommerce": this.registreCommerce,
-      "specialite":this.specialite
+      "specialite":this.specialite,
+      "superadmin":this.superAdimn
+
     }
     this.sup.CreateCentre(data).subscribe(res =>{ console.log(res)
       this.test=true;

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { CentreFormation } from '../Models/CentreFormation';
 import { Etudiant } from '../Models/Etudiant';
 import { RH } from '../Models/RH';
 
@@ -49,5 +50,10 @@ export class AdmincfService {
   /******************************************...image */
   roles:any=[];
   name=new BehaviorSubject('abc');
+  getACFByemail(email:any): Observable<CentreFormation[]>{
+    return this.http.get<CentreFormation[]>(
+      'http://localhost:8082/admincf/getAdmi/'+ email
+    );
+  }
 
 }

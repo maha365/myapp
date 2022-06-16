@@ -65,7 +65,7 @@ function initializeKeycloak(keycloak: KeycloakService){
   keycloak.init({
     config: {
       url: 'http://localhost:8080/auth',
-      realm:'PfeLogin',
+      realm:'Wiser Platform',
       clientId: 'admin-back',
     },
   

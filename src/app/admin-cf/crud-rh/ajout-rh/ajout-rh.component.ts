@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
+import { CentreFormation } from 'src/app/Models/CentreFormation';
 import { AdminCfComponent } from '../../admin-cf.component';
 import { AdmincfService } from '../../admincf.service';
 
@@ -24,11 +25,21 @@ export class AjoutRhComponent implements OnInit {
   msErr: boolean = false;
   succ: boolean = false;
   ListMail!:any;
-  
+  sexe:any=['Homme','Femme']
+  tabs:any=[];
+  Centreform=new CentreFormation();
+  curmail!:any;
   constructor(private sAdmin: AdmincfService, private KeycloakService: KeycloakService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+
+    let userDetails = await this.KeycloakService.loadUserProfile();
+    console.log(userDetails.email);
+    this.curmail = userDetails.email;
+
+    this.getcfyem(this.curmail);
   }
+
   ajout() {
     var numbers = new RegExp(/^[0-9]+$/);
     var test = '@';
@@ -48,8 +59,8 @@ export class AjoutRhComponent implements OnInit {
         "dateinscription": this.Dateinscription,
         "cin": this.Cin,
         "permis": this.permis,
-        "location": this.Location
-
+        "location": this.Location,
+        "admincf":this.Centreform
       }
       this.sAdmin.CreateRH(data).subscribe(res => console.log(res));
       console.log(data)
@@ -59,4 +70,17 @@ export class AjoutRhComponent implements OnInit {
     }
 
   }
+
+
+  getcfyem(email: any) {
+    this.sAdmin.getACFByemail(email).subscribe(res => {
+
+      this.tabs = res,
+        console.log("aaa", res),
+        console.log("zzz", this.tabs)
+        console.log("ena cenrt : ", this.Centreform = this.tabs  )
+
+    })
+  }
+
 }

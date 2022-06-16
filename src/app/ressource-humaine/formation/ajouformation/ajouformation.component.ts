@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { KeycloakService } from 'keycloak-angular';
 import { Formateur } from 'src/app/Models/Formateurs';
+import { RH } from 'src/app/Models/RH';
 import { RhService } from '../../rh.service';
 
 @Component({
@@ -19,17 +21,25 @@ export class AjouformationComponent implements OnInit {
   specialite!: any;
   Certif!: any;
   id = 0;
-
+  RH = new RH();
+tabs:any=[]
   msj = ''
   test!: boolean;
   color = '';
   numb: any[] = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', ','];
+  curmail!:any;
+  constructor(private sRh: RhService , private router: Router,private KeycloakService: KeycloakService) { }
 
-  constructor(private sRh: RhService , private router: Router) { }
-
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.sRh.getAllFormateur().subscribe(res => this.ListFormateurs = res , ex => console.log(ex)) ; 
+
+    let userDetails = await this.KeycloakService.loadUserProfile();
+    console.log(userDetails.email);
+    this.curmail = userDetails.email;
+
+    this.getStudbyem(this.curmail);
   }
+
 
   
   keyPressNumbers(event: any) {
@@ -46,6 +56,16 @@ export class AjouformationComponent implements OnInit {
       return true;
     }
   }
+  getStudbyem(email: any) {
+    this.sRh.getRhByemail(email).subscribe(res => {
+
+      this.tabs = res,
+        console.log("aaa", res),
+        console.log("zzz", this.tabs)
+        console.log("ena RH : ", this.RH = this.tabs  )
+
+    })
+  }
 
 
   ajout() {
@@ -61,8 +81,8 @@ export class AjouformationComponent implements OnInit {
         "nbreHeures": this.nbreHeures,
         "specialite": this.specialite,
         "certif": this.Certif,
-        "formateur": this.formateur
-       
+        "formateur": this.formateur,
+        "rh":this.RH
 
 
       }

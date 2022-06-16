@@ -22,7 +22,7 @@
               </div>
               <div class="col ">-->
             <!-- username -->
-            <input type="text" id="" class="form-control" placeholder="Username" [(ngModel)]="Username">
+            <input type="text" id="" class="form-control" placeholder="Nom d'utilisateur" [(ngModel)]="Username">
           </div>
         </div>
         <!-- E-mail -->
@@ -30,7 +30,12 @@
         <input type="text" id="" class="form-control mb-4" placeholder="E-mail" [(ngModel)]="email">
         <input type="text" id="" class="form-control mb-4" placeholder="NumTel" [(ngModel)]="Numtel"
           (keypress)="keyPressNumbers($event)">
-        <input type="text" id="" class="form-control mb-4" placeholder="Sexe" [(ngModel)]="Sexe">
+          <select [(ngModel)]="Sexe" class="form-select mb-4" aria-label="Default select example" >
+            <!--  -->
+            <option selected disabled>Sexe</option>
+            <option value="Homme"> Hommme </option>
+<option value="femme">Femme</option>
+          </select>
         <input type="text" id="" class="form-control mb-4" placeholder="Diplome" [(ngModel)]="Diplome">
         <input type="text" id="" class="form-control mb-4" placeholder="Annee experience" [(ngModel)]="AnExperience"
           (keypress)="keyPressNumbers($event)">
@@ -41,7 +46,7 @@
 
 
 
-        <input type="text" id="" class="form-control mb-1" placeholder="Location" [(ngModel)]="Location">
+        <input type="text" id="" class="form-control mb-1" placeholder="Adresse" [(ngModel)]="Location">
         <button class="btn btn-success my-5" type="submit"
           [disabled]="!Username || !email || !Numtel || !Sexe || !Diplome || !AnExperience || !Dateinscription || !Cin || !Location"
           (click)="ajout()">Confirmer</button>

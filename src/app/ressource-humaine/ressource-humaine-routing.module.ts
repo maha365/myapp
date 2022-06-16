@@ -20,7 +20,7 @@ const routes: Routes = [{
   children:
     [{
       path: '',
-      redirectTo: 'dashrh',
+      redirectTo: 'Dashboard',
       pathMatch: 'full',
     },
 
@@ -51,6 +51,11 @@ const routes: Routes = [{
       path: 'updateFormateur/:id',
       component: UpdateFormateurComponent,
     },
+    {
+      path:'Dashboard',
+      component:DashboardRHComponent
+    },
+   
     /********* PROFILE *************/
 
     { path:'Profile', component:ProfileRhComponent },
